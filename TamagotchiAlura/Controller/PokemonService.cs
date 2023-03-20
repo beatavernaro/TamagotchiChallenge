@@ -7,6 +7,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using TamagotchiAlura.Model;
+using TamagotchiAlura.View;
 
 namespace TamagotchiAlura.Controller
 {
@@ -26,6 +27,13 @@ namespace TamagotchiAlura.Controller
             var request = new RestRequest("", Method.Get);
             var response = client.Execute(request);
             return JsonSerializer.Deserialize<FlavorTextModel>(response.Content);
+        }
+
+        public static void CallPokemon(string pokeName)
+        {
+            var pokemon = GetPokemon(pokeName);
+            var pokeText = GetFlavorText(pokeName);
+            PokeInfo.PrintPokeInfo(pokemon, pokeText);
         }
     }
 }

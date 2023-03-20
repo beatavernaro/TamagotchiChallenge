@@ -12,6 +12,7 @@ namespace TamagotchiAlura.View
         public static void PrintPokeInfo(PokemonModel model, FlavorTextModel flavor)
         {
 
+            Console.WriteLine($"Pokedex number: {model.Order}");
             Console.WriteLine($"Name: {Capitalize(model.Name)}");
             foreach (var pokeType in model.Types)
             {
@@ -19,7 +20,7 @@ namespace TamagotchiAlura.View
             }
             Console.WriteLine($"Weight: {(decimal)model.Weight/10} kg");
             Console.WriteLine($"Height: {model.Height*10} cm\n");
-            Console.WriteLine(flavor.FlavorText[0].Text);
+            Console.WriteLine((flavor.FlavorText[0].Text).Replace("\f","\n"));
         }
 
 
